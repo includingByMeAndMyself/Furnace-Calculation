@@ -1,7 +1,9 @@
+using FurnaceCalculation.DAL.MSSQL.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,6 +30,10 @@ namespace FurnaceСalculation.API
         {
 
             services.AddControllers();
+
+            var connection = Configuration.GetConnectionString("DevConnection");
+            services.AddDbContext<FurnaceCalculationContext>(options => options.UseSqlServer(connection));
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FurnaceСalculation.API", Version = "v1" });
