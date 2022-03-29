@@ -1,5 +1,5 @@
 ﻿
-namespace FurnaceCalculation.Domain.Entity
+namespace FurnaceСalculation.API.Entity
 {
     public class Login
     {

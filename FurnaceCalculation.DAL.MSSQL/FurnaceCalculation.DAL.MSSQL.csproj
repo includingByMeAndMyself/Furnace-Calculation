@@ -21,4 +21,8 @@
     <Folder Include="Repository\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FurnaceCalculation.Domain\FurnaceCalculation.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

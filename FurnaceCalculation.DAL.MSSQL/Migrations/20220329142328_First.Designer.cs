@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FurnaceCalculation.DAL.MSSQL.Migrations
 {
     [DbContext(typeof(FurnaceCalculationContext))]
-    [Migration("20220323172458_First")]
+    [Migration("20220329142328_First")]
     partial class First
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,7 +20,7 @@ namespace FurnaceCalculation.DAL.MSSQL.Migrations
                 .HasAnnotation("ProductVersion", "5.0.15")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("FurnaceCalculation.DAL.MSSQL.Entity.User", b =>
+            modelBuilder.Entity("FurnaceCalculation.Domain.Entity.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");

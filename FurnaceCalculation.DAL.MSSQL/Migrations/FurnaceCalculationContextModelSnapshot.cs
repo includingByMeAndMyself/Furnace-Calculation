@@ -18,7 +18,7 @@ namespace FurnaceCalculation.DAL.MSSQL.Migrations
                 .HasAnnotation("ProductVersion", "5.0.15")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("FurnaceCalculation.DAL.MSSQL.Entity.User", b =>
+            modelBuilder.Entity("FurnaceCalculation.Domain.Entity.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
