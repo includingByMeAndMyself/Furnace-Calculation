@@ -1,4 +1,9 @@
+using FurnaceCalculation.BusinessLogic.Interface;
+using FurnaceCalculation.BusinessLogic.Service;
 using FurnaceCalculation.DAL.MSSQL.Context;
+using FurnaceCalculation.DAL.MSSQL.Entity;
+using FurnaceCalculation.DAL.MSSQL.Repository;
+using FurnaceCalculation.DAL.MSSQL.Repository.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,9 +36,15 @@ namespace FurnaceСalculation.API
 
             services.AddControllers();
 
+            services.AddAutoMapper(typeof(ApiMappingProfile));
+
             var connection = Configuration.GetConnectionString("DevConnection");
             services.AddDbContext<FurnaceCalculationContext>(options => options.UseSqlServer(connection));
             
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IAuthService<User>, AuthService>();
+            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FurnaceСalculation.API", Version = "v1" });
