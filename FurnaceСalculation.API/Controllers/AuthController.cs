@@ -44,14 +44,14 @@ namespace FurnaceСalculation.API.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public IActionResult Register([FromBody] User request)
+        public IActionResult Register([FromBody] Register request)
         {
             if (ModelState.IsValid == false)
                 return BadRequest();
 
-            //var user = _mapper.Map<IUser>(request);
+            var user = _mapper.Map<User>(request);
 
-            var response = _authService.Register(request);
+            var response = _authService.Register(user);
 
             return Ok(response);
         }

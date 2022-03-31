@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using FurnaceCalculation.Domain.Entity;
+using FurnaceCalculation.DAL.MSSQL.Entity;
 using FurnaceСalculation.API.Entity;
 
 namespace FurnaceСalculation.API
@@ -8,7 +8,7 @@ namespace FurnaceСalculation.API
     {
         public ApiMappingProfile()
         {
-            CreateMap<Register, IUser>();
+            CreateMap<Register, User>();
         }
     }
 }
